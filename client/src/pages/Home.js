@@ -10,12 +10,12 @@ import LiveBallTracker from '../components/LiveBallTracker';
 function Home() {
     return (
         <div>
-            <div className='container pb-5'>
+            <div>
+                <LiveBallTracker />
+            </div>
+            <div className='container pt-4'>
                 <div className='row'>
-                    <Score />
-                    <LiveBallTracker />
                     <Personnel />
-                    <DownDistance />
                 </div>
             </div>
             <div className='container pt-5'>
@@ -27,6 +27,11 @@ function Home() {
             <div className='container pt-5'>
                 <div className='row'>
                     <Notes />
+                </div>
+            </div>
+            <div className='container pt-5'>
+                <div className='row'>
+                    <Score />
                 </div>
             </div>
         </div>
