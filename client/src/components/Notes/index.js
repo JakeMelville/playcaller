@@ -9,13 +9,13 @@ function Notes() {
     let newNoteBtn;
     let noteList;
 
-    if (window.location.pathname === '/notes') {
-        noteTitle = document.querySelector('.note-title');
-        noteText = document.querySelector('.note-textarea');
-        saveNoteBtn = document.querySelector('.save-note');
-        newNoteBtn = document.querySelector('.new-note');
-        noteList = document.querySelectorAll('.list-container .list-group');
-    }
+
+    noteTitle = document.querySelector('.note-title');
+    noteText = document.querySelector('.note-textarea');
+    saveNoteBtn = document.querySelector('.save-note');
+    newNoteBtn = document.querySelector('.new-note');
+    noteList = document.querySelectorAll('.list-container .list-group');
+
 
     // Show an element
     const show = (elem) => {
@@ -24,14 +24,14 @@ function Notes() {
 
     // Hide an element
     const hide = (elem) => {
-        elem.style.display = 'none';
+        elem.style.display = 'hidden';
     };
 
     // activeNote is used to keep track of the note in the textarea
     let activeNote = {};
 
     const getNotes = () =>
-        fetch('/api/notes', {
+        fetch('/api', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ function Notes() {
         });
 
     const saveNote = (note) =>
-        fetch('/api/notes', {
+        fetch('/api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ function Notes() {
         });
 
     const deleteNote = (id) =>
-        fetch(`/api/notes/${id}`, {
+        fetch(`/api/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -191,8 +191,8 @@ function Notes() {
             <nav className="navbar navbar-dark bg-primary">
                 <a className="navbar-brand" href="/">Notes of the opposing team</a>
                 <div className="icons">
-                    <FontAwesomeIcon icon={faSave} onClick={handleNoteSave}/>
-                    <FontAwesomeIcon icon={faPen} onClick={handleNewNoteView}/>    
+                    <FontAwesomeIcon icon={faSave} onClick={handleNoteSave} />
+                    <FontAwesomeIcon icon={faPen} onClick={handleNewNoteView} />
                 </div>
             </nav>
             <div className="container-fluid">
